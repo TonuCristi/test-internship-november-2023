@@ -2,13 +2,26 @@ import { useState } from "react";
 import TableRow from "./TableRow";
 
 function Table({ data, onSortedData }) {
-  const [sortedWindSpeed, setSortedWindSpeed] = useState(false);
-  const [sortedRainSum, setSortedRainSum] = useState(false);
+  const [sortedByWindSpeed, setSortedByWindSpeed] = useState(false);
+  const [sortedByRainSum, setSortedByRainSum] = useState(false);
+  const [sortedByData, setSortedByData] = useState(false);
 
-  function handleDate() {}
+  function handleDate() {
+    setSortedByData((prev) => !prev);
+    if (sortedByData) {
+      onSortedData([
+        ...data.sort((a, b) => new Date(a.daily.time) - new Date(b.daily.time)),
+      ]);
+    } else {
+      onSortedData([
+        ...data.sort((a, b) => new Date(b.daily.time) - new Date(a.daily.time)),
+      ]);
+    }
+  }
+
   function handleRainSum() {
-    setSortedRainSum((prev) => !prev);
-    if (sortedRainSum) {
+    setSortedByRainSum((prev) => !prev);
+    if (sortedByRainSum) {
       onSortedData([
         ...data.sort((a, b) => a.daily.rain_sum - b.daily.rain_sum),
       ]);
@@ -20,8 +33,8 @@ function Table({ data, onSortedData }) {
   }
 
   function handleWindSpeed() {
-    setSortedWindSpeed((prev) => !prev);
-    if (sortedWindSpeed) {
+    setSortedByWindSpeed((prev) => !prev);
+    if (sortedByWindSpeed) {
       onSortedData([
         ...data.sort(
           (a, b) => a.daily.wind_speed_10m_max - b.daily.wind_speed_10m_max

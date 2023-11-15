@@ -7,7 +7,6 @@ function Home() {
   const [long, setLong] = useState("");
   const [days, setDays] = useState(1);
   const [errMessage, setErrMessage] = useState("");
-  // const [sortedData, setSortedData] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,9 +22,9 @@ function Home() {
       })
       .catch((err) => setErrMessage("No data found for searched criteria"));
 
-    // setLat("");
-    // setLong("");
-    // setDays(1);
+    setLat("");
+    setLong("");
+    setDays(1);
     console.log(data);
   }
 
@@ -37,29 +36,29 @@ function Home() {
         <div>
           <label>Latitude</label>
           <input
-            value={long}
+            value={lat}
             onChange={(e) => {
-              setLong(e.target.value);
+              if (e.target.value % 1 === 0) setLat(e.target.value);
             }}
-            placeholder="Longitude..."
+            placeholder="Latitude..."
             type="text"
           />
         </div>
         <div>
           <label>Longitute</label>
           <input
-            value={lat}
+            value={long}
             onChange={(e) => {
-              setLat(e.target.value);
+              if (e.target.value % 1 === 0) setLong(e.target.value);
             }}
-            placeholder="Latitude..."
+            placeholder="Logitude..."
             type="text"
           />
         </div>
 
         <div>
-          <label>Forecast</label>
-          <select value={days} onChange={(e) => setDays(e.target.value)}>
+          <label>Forecast Days</label>
+          <select value={days} onChange={() => setDays(1)}>
             <option value={1}>1 day</option>
             <option value={3}>3 day</option>
             <option value={7}>7 day</option>

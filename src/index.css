@@ -101,8 +101,8 @@ body {
 .rows {
   height: 40rem;
   overflow-y: scroll;
-  display: grid;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 1.2rem;
 }
 
