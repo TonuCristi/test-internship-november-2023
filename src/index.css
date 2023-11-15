@@ -1,13 +1,172 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1;
+  font-weight: 400;
+  overflow: hidden;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 23rem auto;
+}
+
+/* ----- Side Bar ----- */
+.sidebar {
+  background-color: #347ab4;
+  width: 23rem;
+  height: 100vh;
+  color: #fff;
+  padding: 1.2rem 2.4rem;
+}
+
+.logo-box {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  text-align: center;
+  font-size: 4.8rem;
+}
+
+.nav-bar {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-bar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  font-size: 2.4rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.page-footer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- Home Page ----- */
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.4rem;
+}
+
+.home-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.column-name {
+  align-self: start;
+  list-style: none;
+  font-size: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(7, 15rem);
+}
+
+.rows {
+  height: 40rem;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 1.2rem;
+}
+
+.row {
+  /* border-bottom: 3px solid #000; */
+  list-style: none;
+  font-size: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(7, 15rem);
+}
+
+.error-message {
+  font-size: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+/* ----- About Page ----- */
+.about {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+}
+
+/* ----- Contact Page ----- */
+.contact {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.submit-btn {
+  align-self: flex-start;
+}
+
+.json {
+  font-size: 2.4rem;
+}
+
+/* ----- Footer ----- */
+.footer {
+  background-color: #ededed;
+  height: 4rem;
+  width: 100%;
+  color: #515356;
+  font-size: 1.6rem;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
